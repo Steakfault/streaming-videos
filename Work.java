@@ -18,7 +18,11 @@ public class Work {
 
 	// Génère les résultats
 	private void generateResults() {
-		this.results += this.in.getCache();
+		this.results += this.in.getCache() + "\n";
+
+		for (int i = 0; i < this.in.getCache(); i++) {
+			this.results += i + "\n";
+		}
 
 	}
 

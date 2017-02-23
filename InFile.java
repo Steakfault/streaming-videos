@@ -16,9 +16,9 @@ public class InFile {
 
 	// Constructeur
 	public InFile(String filename) {
-		this.filename = "./input/" + filename + ".in";
+		this.filename = filename;
 		try {
-			File file = new File(this.filename);
+			File file = new File("./input/" + this.filename + ".in");
 			try (Scanner sc = new Scanner(file)) {
 				this.videos = sc.nextInt();
 				this.endpoints = sc.nextInt();
