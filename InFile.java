@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class InFile {
 
 	private String filename;
-	private int videos = 0;
-	private int endpoints = 0;
-	private int requestDescriptions = 0;
-	private int cache= 0;
-	//public char[][] content;
+	private int videos;
+	private int endpoints;
+	private int requestDescriptions;
+	private int cache;
+	private int cacheSize;
 
 	public InFile(String filename) {
 		this.filename = filename;
@@ -20,17 +20,7 @@ public class InFile {
 				this.endpoints = sc.nextInt();
 				this.requestDescriptions = sc.nextInt();
 				this.cache = sc.nextInt();
-				//this.content = new char[this.columns][this.rows];
-
-				/*int j = 0;
-				while (sc.hasNext() && j < this.rows) {
-					String str = sc.next();
-					for (int i = 0; i < this.columns; i++) {
-						this.content[i][j] = str.charAt(i);
-					}
-					j++;
-				}*/
-
+				this.cacheSize = sc.nextInt();
 			}
 		} catch(Exception e) {}
 	}
@@ -39,6 +29,7 @@ public class InFile {
 		System.out.println("Nombre de videos : " + this.videos);
 		System.out.println("Nombre de endpoints : " + this.endpoints);
 		System.out.println("Nombre de request descriptions : " + this.requestDescriptions);
-		System.out.println("Nombre de cache: " + this.cache);
+		System.out.println("Nombre de cache : " + this.cache);
+		System.out.println("Taille de chaque cache : " + this.cacheSize + " Mo");
 	}
 }
