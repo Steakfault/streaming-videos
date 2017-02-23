@@ -6,10 +6,14 @@ JC = javac
 
 CLASSES = *.java
 
-default: classes
+default: classes archive
 	@java App
 
 classes: $(CLASSES:.java=.class)
 
 clean:
-	$(RM) *.class
+	$(RM) *.class archive.zip
+
+.PHONY: archive
+archive:
+	@zip -r archive.zip *.java > /dev/null
