@@ -18,6 +18,6 @@ public class Video {
 	}
 
 	public String toString() {
-		return "La video #" + getId() + " possède une taille de " + getSize() + "MB";
+		return "La video #" + getId() + " a une taille de " + getSize() + "MB";
 	}
 }

@@ -46,4 +46,36 @@ public class InFile {
 			System.out.println(" - " + v);
 		}
 	}
+
+
+	// Getters
+
+	public String getFilename() {
+		return this.filename;
+	}
+
+	public int getVideos() {
+		return this.videos;
+	}
+
+	public int getEndpoints() {
+		return this.endpoints;
+	}
+
+	public int getRequestDescriptions() {
+		return this.requestDescriptions;
+	}
+
+	public int getCache() {
+		return this.cache;
+	}
+
+	public int getCacheSize() {
+		return this.cacheSize;
+	}
+
+	public List<Video> getVideoList() {
+		return this.videoList;
+	}
+
 }
