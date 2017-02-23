@@ -28,12 +28,13 @@ public class App {
 		// filename = "videos_worth_spreading";
 
 		InFile in = new InFile(filename);
+		OutFile out = new OutFile(352);
 		in.debug();
 
 		Work w = new Work(in);
 		w.printResults();
 		w.out(filename);
 
-		OutFile out = new OutFile("./output/caca.out", 352);
+		out.writeTo("./output/" + filename + ".out");
 	}
 }
