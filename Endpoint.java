@@ -21,10 +21,12 @@ public class Endpoint {
 
 
   // Constructor
-  public Endpoint(int id)
+  public Endpoint(int id, int latency)
   {
     this.id = id;
+    this.dataLatency = latency;
     this.caches = new ArrayList<Cache>();
+    this.cacheLatencies = new ArrayList<Integer>();
   }
 
   // Adds a cache and a latency to each respective list
