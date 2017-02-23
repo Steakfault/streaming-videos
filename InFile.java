@@ -25,6 +25,7 @@ public class InFile {
 				this.cache = sc.nextInt();
 				this.cacheSize = sc.nextInt();
 
+				this.videoList = new ArrayList<Video>();
 				for (int i = 0; i < this.videos; i++) {
 					Video v = new Video(i, sc.nextInt());
 					this.videoList.add(v);
@@ -39,5 +40,10 @@ public class InFile {
 		System.out.println("Nombre de request descriptions : " + this.requestDescriptions);
 		System.out.println("Nombre de cache : " + this.cache);
 		System.out.println("Taille de chaque cache : " + this.cacheSize + "MB");
+
+		System.out.println("\nListe des vidéos :");
+		for (Video v : this.videoList) {
+			System.out.println(" - " + v);
+		}
 	}
 }

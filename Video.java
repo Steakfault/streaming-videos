@@ -16,4 +16,8 @@ public class Video {
 	public int getSize() {
 		return this.size;
 	}
+
+	public String toString() {
+		return "La video #" + getId() + " possède une taille de " + getSize() + "MB";
+	}
 }
