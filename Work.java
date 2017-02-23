@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-
+import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class Work {
 			int totalSize = this.in.getCacheSize();
 			boolean isOk = true;
 			this.results += i;
-			int nbTry = 2;
+			int nbTry = 1;
 			while (isOk) {
 				if (videoList.size() == 0) {
 					videoList.addAll(this.in.getVideoList());
@@ -38,11 +38,14 @@ public class Work {
 					if (nbTry < 0) isOk = false;
 				}
 
-				if (videoList.get(0).getSize() < totalSize) {
-					totalSize -= videoList.get(0).getSize();
-					this.results += " " + videoList.get(0).getId();
+				Random r = new Random();
+    			int nb = r.nextInt(videoList.size());
+
+				if (videoList.get(nb).getSize() < totalSize) {
+					totalSize -= videoList.get(nb).getSize();
+					this.results += " " + videoList.get(nb).getId();
 				}
-				videoList.remove(0);
+				videoList.remove(nb);
 			}
 			this.results += "\n";
 		}

@@ -15,24 +15,55 @@ public class App {
 
 
 		String filename; // le nom du fichier (sans l'extension, etc...)
-
-
-		/*
-				Juste à décommenter le fichier souhaité
-		*/
+		InFile in;
+		Work w;
 
 		filename = "example";
-		// filename = "kittens";
-		// filename = "me_at_the_zoo";
-		// filename = "trending_today";
-		// filename = "videos_worth_spreading";
-
-		InFile in = new InFile(filename);
+		in = new InFile(filename);
 		in.debug();
 
-		Work w = new Work(in);
+		w = new Work(in);
 		w.printResults();
 		w.out(filename);
+
+
+		filename = "kittens";
+		in = new InFile(filename);
+		in.debug();
+
+		w = new Work(in);
+		w.printResults();
+		w.out(filename);
+
+
+		filename = "me_at_the_zoo";
+		in = new InFile(filename);
+		in.debug();
+
+		w = new Work(in);
+		w.printResults();
+		w.out(filename);
+
+
+		filename = "trending_today";
+		in = new InFile(filename);
+		in.debug();
+
+		w = new Work(in);
+		w.printResults();
+		w.out(filename);
+
+
+		filename = "videos_worth_spreading";
+		in = new InFile(filename);
+		in.debug();
+
+		w = new Work(in);
+		w.printResults();
+		w.out(filename);
+
+
+
 
 		OutFile out = new OutFile("./output/caca.out", 352);
 	}
