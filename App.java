@@ -1,5 +1,3 @@
-// Classe principale
-
 /**
  * JavaDoc comment
  * Main attributes:
@@ -9,10 +7,11 @@
  * @since       2017/02/23
  */
 
+// Classe principale
 public class App {
 	public static void main (String [] args) {
 
-		String filename;
+		String filename; // le nom du fichier (sans l'extension, etc...)
 
 
 		/*
