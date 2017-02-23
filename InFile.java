@@ -15,9 +15,9 @@ public class InFile {
 	private List<Video> videoList;
 
 	public InFile(String filename) {
-		this.filename = filename;
+		this.filename = "./input/" + filename + ".in";
 		try {
-			File file = new File(filename);
+			File file = new File(this.filename);
 			try (Scanner sc = new Scanner(file)) {
 				this.videos = sc.nextInt();
 				this.endpoints = sc.nextInt();

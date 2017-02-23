@@ -25,7 +25,11 @@ public class App {
 		// filename = "trending_today";
 		// filename = "videos_worth_spreading";
 
-		InFile in = new InFile("./input/" + filename + ".in");
+		InFile in = new InFile(filename);
 		in.debug();
+
+		Work w = new Work(in);
+		w.printResults();
+		w.out(filename);
 	}
 }
