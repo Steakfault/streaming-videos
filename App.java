@@ -1,3 +1,5 @@
+// Classe principale
+
 /**
  * JavaDoc comment
  * Main attributes:
@@ -10,6 +12,7 @@
 // Classe principale
 public class App {
 	public static void main (String [] args) {
+
 
 		String filename; // le nom du fichier (sans l'extension, etc...)
 
@@ -30,5 +33,7 @@ public class App {
 		Work w = new Work(in);
 		w.printResults();
 		w.out(filename);
+
+		OutFile out = new OutFile("./output/caca.out", 352);
 	}
 }

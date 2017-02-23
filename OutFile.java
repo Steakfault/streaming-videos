@@ -1,5 +1,3 @@
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import java.util.ArrayList;
 
 /**
@@ -11,16 +9,43 @@ import java.util.ArrayList;
  */
 
 public class OutFile {
-    ArrayList videos = new ArrayList();
+    protected ArrayList videos = new ArrayList< ArrayList<Integer> >();
+    private int[] linking;
+    private int nCacheServers;
 
-    public Boolean addVideo(int cacheServer, int video) {
-        //this.videos.add()
+    private int addCache(int id) {
+        ArrayList cacheServer = new ArrayList();
+        this.videos.add(cacheServer);
+        return this.videos.size() - 1;
+    }
+
+    public Boolean addVideo(int cacheID, int videoID) {
+        if (this.linking.length <= cacheID){
+            return false;
+        }
+        //todo
+        if (this.linking[cacheID] == -1){
+            this.linking[cacheID] = addCache(cacheID);
+        }
+
+        ArrayList sublist = (ArrayList)this.videos.get(this.linking[cacheID]);
+        sublist.add(videoID);
         return true;
     }
 
-    public OutFile(String filename) {
+    public OutFile(String filename, int cacheServers) {
         String fs;
-        fs = String.format("%d \n", 0);
-        System.out.println(fs);
+        this.nCacheServers = cacheServers;
+        this.linking = new int[cacheServers];
+        for (int i = 0; i < this.linking.length; i++) {
+            this.linking[i] = -1;
+        }
+
+        this.addVideo(0, 1);
+        this.addVideo(7, 8);
+        this.addVideo(7, 19);
+        System.out.println(this.videos);
     }
+
+
 }
