@@ -4,6 +4,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // Classe qui fait le taf'
 public class Work {
 
@@ -20,8 +23,28 @@ public class Work {
 	private void generateResults() {
 		this.results += this.in.getCache() + "\n";
 
+		List<Video> videoList = new ArrayList<Video>();
+		videoList.addAll(this.in.getVideoList());
+
 		for (int i = 0; i < this.in.getCache(); i++) {
-			this.results += i + "\n";
+			int totalSize = this.in.getCacheSize();
+			boolean isOk = true;
+			this.results += i;
+			int nbTry = 2;
+			while (isOk) {
+				if (videoList.size() == 0) {
+					videoList.addAll(this.in.getVideoList());
+					nbTry--;
+					if (nbTry < 0) isOk = false;
+				}
+
+				if (videoList.get(0).getSize() < totalSize) {
+					totalSize -= videoList.get(0).getSize();
+					this.results += " " + videoList.get(0).getId();
+				}
+				videoList.remove(0);
+			}
+			this.results += "\n";
 		}
 
 	}
