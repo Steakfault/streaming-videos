@@ -10,6 +10,8 @@ import java.util.List;
 // Classe qui fait le taf'
 public class Work {
 
+	private boolean useRandom = true;
+
 	private InFile in; // contient les infos du fichier d'entré parsé
 	private String results = ""; // contiendra le résultat
 
@@ -27,6 +29,7 @@ public class Work {
 		videoList.addAll(this.in.getVideoList());
 
 		for (int i = 0; i < this.in.getCache(); i++) {
+			List<Integer> videosUsed = new ArrayList<Integer>();
 			int totalSize = this.in.getCacheSize();
 			boolean isOk = true;
 			this.results += i;
@@ -38,12 +41,19 @@ public class Work {
 					if (nbTry < 0) isOk = false;
 				}
 
-				Random r = new Random();
-    			int nb = r.nextInt(videoList.size());
+				int nb = 0;
+				if (this.useRandom) {
+					Random r = new Random();
+    				nb = r.nextInt(videoList.size());
+				}
 
-				if (videoList.get(nb).getSize() < totalSize) {
-					totalSize -= videoList.get(nb).getSize();
-					this.results += " " + videoList.get(nb).getId();
+    			Video currentVideo = videoList.get(nb);
+
+				if (currentVideo.getSize() < totalSize
+				&& !videosUsed.contains(currentVideo.getId())) {
+					totalSize -= currentVideo.getSize();
+					this.results += " " + currentVideo.getId();
+					videosUsed.add(currentVideo.getId());
 				}
 				videoList.remove(nb);
 			}
